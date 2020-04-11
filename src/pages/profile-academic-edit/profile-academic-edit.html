@@ -1,0 +1,80 @@
+<ion-content>
+
+  <div ion-fixed class="bgdheader" style="height:50px; width:100%; color:#fff" >
+    <table width="100%"  height="50px">
+      <tr>
+        <td style="width:20%; padding-left:10px;"> <div style="font-size:20px; margin-left:10px;" (click) = "goToBack()"> <ion-icon name="arrow-back"></ion-icon> </div> </td>
+        <td style="width:80%; padding-left:30px; font-size:18px; ">Edit Educational Details</td>
+      </tr>
+    </table>   
+  </div>
+
+  <div style="margin-top:50px; ">
+
+    <div style="padding-top:15px;">
+
+      <form [formGroup]="myForm" style="margin-top:-20px; margin-bottom:10px" >
+        <ion-row>
+          <ion-col>
+            <ion-list inset class="no-border" style="background:none;">
+
+              <table width="100%">
+                <tr>
+                  <td width="10%" style="vertical-align: bottom; padding-bottom:5px;"><img src="assets/img/course.png" width="17px" height="17px"></td>
+                  <td width="90%">
+                    <ion-item>
+                      <ion-label floating>Course Name</ion-label>
+                      <ion-input [(ngModel)]="course_name" formControlName="course_name" type="text" ></ion-input>
+                    </ion-item>
+                  </td>                  
+                </tr>
+
+                <tr>
+                  <td width="10%" style="vertical-align: bottom; padding-bottom:5px;"><img src="assets/img/college.png" width="17px" height="17px"></td>
+                  <td width="90%">
+                    <ion-item>
+                      <ion-label floating>College Name</ion-label>
+                      <ion-input [(ngModel)]="college_name" formControlName="college_name" type="text" ></ion-input>
+                    </ion-item>
+                  </td>                  
+                </tr>
+
+                <tr>
+                  <td width="10%" style="vertical-align: bottom; padding-bottom:5px;"><img src="assets/img/calendar.png" width="17px" height="17px"></td>
+                  <td width="90%">
+                    <ion-item>
+                      <ion-label floating>Admission Year</ion-label>
+                      <ion-input [(ngModel)]="admission_yr" formControlName="admission_yr" type="number" ></ion-input>
+                    </ion-item>
+                  </td>                  
+                </tr>
+
+                <tr>
+                  <td width="10%" style="vertical-align: bottom; padding-bottom:5px;"><img src="assets/img/status.png" width="17px" height="17px"></td>
+                  <td width="90%">
+                    <ion-item>
+                      <ion-label floating>Education Status</ion-label>
+                      <ion-input [(ngModel)]="edu_status" formControlName="edu_status" type="text" ></ion-input>
+                    </ion-item>
+                  </td>                  
+                </tr>
+
+              </table>
+
+              <ion-item></ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div style="text-align:center;">
+              <button ion-button class="bgdheader edit-profile-button" (click)="editAcademicProfile();">ADD</button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </form>
+
+    </div>
+
+  </div>
+</ion-content>

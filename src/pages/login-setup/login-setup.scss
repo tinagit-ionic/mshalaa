@@ -1,0 +1,25 @@
+page-login-setup {
+
+    .btn-start {
+        width: 100%;
+        height: 45px;
+        font-size: 15px;   
+        box-shadow: inset 0 0 0 0 !important; 
+        background:#FF7162;
+    }
+
+    .full-width-select {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    .item-inner{
+        border-bottom-color: transparent !important;
+        box-shadow: none !important;
+    }
+
+    .color-txt{
+      color: color($colors, primary, base);
+    }
+
+}

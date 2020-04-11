@@ -1,0 +1,67 @@
+<ion-content>
+
+  <div ion-fixed style="width: 100%; background:#ffffff; padding-bottom:10px; ">
+
+    <div class="bgdheader" style="padding-top:10px; padding-bottom:10px; " >
+      <table width="100%" border="0" >
+        <tr>
+          <td width="20%" style="padding-left:20px;"><div (click)="openMenu();" ><img src="assets/img/menu_white.png" width="20px;" height="20px"></div></td>
+          <td width="45%" style="text-align:left; color:#FFFFFF; font-size: 17px;"><b>mshala</b></td>
+          <td width="35%" style="text-align: right; padding-right:20px;">
+            <span (click) = "notification();"><img src="assets/img/notification_white.png" width="30px;" height="30px"></span> &nbsp; &nbsp; 
+            <span (click) = "profile();"><img src="{{ photo }}" width="30px;" height="30px" style="border-radius:15px;"></span>                  
+          </td>        
+        </tr>
+      </table>
+    </div>
+
+    <div style="margin-top: 10px; margin-bottom:15px;">
+      <div style="font-size:20px; text-align: center;">{{ subjectDetails?.subjectName }}</div>
+    </div>
+
+    <div style="margin-left:12%; margin-right: 12%;">
+      <div *ngIf = "subjectDetails?.subjectName">
+      <table width="100%" border="0">
+        <tr>
+          <td width="25%">
+            <div (click)="goToMcqQuestion(currentLevelInfo?.currentLevelId);" style="background:#73D74B; text-align:center; width:70px; padding-top:5px; padding-bottom:5px; ">
+              <div style="font-size:20px;"><b>{{ currentLevelInfo?.currentLevelNumber }}</b></div>
+              <div style="padding-bottom:2px;"><img src="assets/img/cup.png" width="15px" height="15px;"></div>
+            </div>
+          </td>
+          <td width="75%">
+            <div style="font-size:13px; padding-left:7px;">
+              <!-- <div>{{ currentLevelInfo?.currentLevelTitle }}</div>      -->
+              <div>Total Questions : {{ currentLevelInfo?.currentLevelQues }}</div>            
+              <div>Passing Level : {{ currentLevelInfo?.currentLevelPassMarks }}</div>                                 
+            </div>
+          </td>          
+        </tr>
+      </table>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="text-align:center; margin-top:170px; margin-bottom:10px;">
+
+    <div *ngIf = "subjectDetails?.subjectName" style="padding-left:20px; padding-right:20px; padding-top:7px; ">
+      <div class="row" >
+
+        <div style="border:0px solid #ffffff; " col-3 col-sm-3 col-md-6 col-lg-3 col-xl-2 *ngFor="let level of levels; let i = index" text-center> 
+          <button (click)="goToLevelSelect(level);" [ngClass]="level.level_class" >
+            <div style="margin-top:-5px; margin-bottom:-5px; padding-top:7px; padding-bottom:7px; ">
+              <!-- <div><img src="assets/img/lock.png" width="35px" height="35px"></div> -->
+              <div style="font-size:22px;"><b>{{ level.level_no }}</b></div>
+            </div>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <div *ngIf = "!subjectDetails?.subjectName" style="color:#d50000; font-size:16px; margin-top:250px;"><b>No Data</b></div>
+
+  </div>
+
+</ion-content>

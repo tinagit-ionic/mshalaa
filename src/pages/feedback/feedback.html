@@ -1,0 +1,86 @@
+<ion-content>
+
+  <div ion-fixed style="width: 100%; padding-bottom:10px; ">
+    <div class="bgdheader" style="padding-top:10px; padding-bottom:10px; " >
+      <table width="100%" border="0" >
+        <tr>
+          <td width="20%" style="padding-left:20px;"><div (click)="openMenu();" ><img src="assets/img/menu_white.png" width="20px;" height="20px"></div></td>
+          <td width="45%" style="text-align:left; color:#FFFFFF; font-size: 17px;"><b>mshala</b></td>
+          <td width="35%" style="text-align: right; padding-right:20px;">
+            <span (click) = "notification();"><img src="assets/img/notification_white.png" width="30px;" height="30px"></span> &nbsp; &nbsp;                 
+            <span (click) = "profile();"><img src="{{ photo }}" width="30px;" height="30px" style="border-radius:15px;"></span>                  
+          </td>        
+        </tr>
+      </table>
+    </div>
+
+    <div style="text-align:center; font-size:20px; margin-top:10px;"><b>सूचना व अभिप्राय</b></div>    
+  </div>
+
+  <div style="margin-top:100px; ">
+      
+    <div style="margin-top:20px;">
+
+      <form [formGroup]="myForm" style="margin-top:-20px; margin-bottom:10px" >
+        <ion-row>
+          <ion-col>
+            <ion-list inset class="no-border" style="background:none;">
+      
+              <ion-item style="border:1px solid #ddd; margin-top:10px;">
+                <ion-textarea rows="5" [(ngModel)]="userInfo.message" formControlName="message" placeholder="Message"></ion-textarea>
+              </ion-item>   
+        
+              <ion-item></ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div style="text-align:center; margin-left:10px; margin-right:10px;">
+              <button ion-button class="bgdheader feedback-button" (click)="feedback()">Send</button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </form>
+
+    </div>
+
+  </div>
+</ion-content>
+
+  
+  
+      <!-- <ion-item-group *ngFor="let group of groupedContacts">
+        <ion-item-divider color="light">{{group.letter}}</ion-item-divider>
+          <ion-item *ngFor="let contact of group.contacts" class="contactlist">
+            {{contact.name}}
+            <p>{{contact.number}}</p>
+          </ion-item>
+      </ion-item-group> -->
+  
+  <!-- <ion-list>
+        <ion-list-header>Follow us on Twitter</ion-list-header>
+        <ion-item *ngFor="let item of contactsfound">
+          <div>
+            <div>{{ item.displayName }}</div>
+            <div>{{ item.phoneNumbers }}</div>
+            <div>{{ item.phoneNumber[0].value }}</div>
+          </div>
+        </ion-item>
+      </ion-list> -->
+  
+      <!-- <ion-item *ngFor="let contact of everybody | async">
+  
+        <ion-icon item-start *ngIf="contact.phoneNumbers"
+          (click)="callContact(contact.phoneNumbers[0].value)"
+          ios="ios-call"
+          md="md-call"
+          tappable>
+        </ion-icon>
+  
+        <ion-label>
+          <div>{{ contact.name.givenName }}</div>
+          <div>{{ contact.phoneNumbers[0].value }}</div>
+        </ion-label>
+        
+      </ion-item> -->

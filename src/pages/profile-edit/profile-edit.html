@@ -1,0 +1,137 @@
+<ion-content>
+
+  <div ion-fixed class="bgdheader" style="height:50px; width:100%; color:#fff" >
+    <table width="100%"  height="50px">
+      <tr>
+        <td style="width:20%; padding-left:10px;"> <div style="font-size:20px; margin-left:10px;" (click) = "goToBack()"> <ion-icon name="arrow-back"></ion-icon> </div> </td>
+        <td style="width:80%; padding-left:30px; font-size:18px; ">Edit Profile</td>
+      </tr>
+    </table>   
+  </div>
+
+  <div style="margin-top:50px; ">
+
+    <div style="padding-top:15px;">
+
+      <form [formGroup]="myForm" style="margin-top:-20px; margin-bottom:10px" >
+        <ion-row>
+          <ion-col>
+            <ion-list inset class="no-border" style="background:none;">
+
+              <table width="100%" border="0">
+                <tr>
+                  <td width="10%" style="vertical-align: bottom; padding-bottom:5px;"><img src="assets/img/username.png" width="17px" height="17px"></td>
+                  <td width="90%">
+                    <ion-item>
+                      <ion-label floating>Name</ion-label>
+                      <ion-input [(ngModel)]="name" [value]="vfullname" formControlName="name" type="text" ></ion-input>
+                    </ion-item>
+                  </td>                  
+                </tr>
+
+                <tr>
+                  <td width="10%" style="vertical-align: bottom; padding-bottom:5px;"><img src="assets/img/call.png" width="17px" height="17px"></td>
+                  <td width="90%">
+                    <ion-item>
+                      <ion-label floating>Mobile 2</ion-label>
+                      <ion-input [(ngModel)]="mobile" [value]="vmobile2" formControlName="mobile" type="number" ></ion-input>
+                    </ion-item>
+                  </td>                  
+                </tr>
+
+                <tr>
+                  <td width="10%" style="vertical-align: bottom; padding-bottom:5px;"><img src="assets/img/calendar.png" width="17px" height="17px"></td>
+                  <td width="90%">
+                    <ion-item>
+                      <ion-label floating>Date of Birth</ion-label>
+                      <ion-input [(ngModel)]="dob" [value]="vdob" formControlName="dob" type="date" ></ion-input>
+                    </ion-item>
+                  </td>                  
+                </tr>
+
+                <tr>
+                  <td width="10%" style="vertical-align: middle; padding-top:25px; "><img src="assets/img/gender.png" width="25px" height="25px"></td>
+                  <td width="90%">
+                    <ion-list formControlName="gender" radio-group [(ngModel)]="gender" style="margin-top:15px; margin-bottom:-15px;" >
+
+                      <table border="0" width="100%">
+                        <tr>
+                          <td width="20%">Gender</td>
+                          <td width="40%">
+                            <ion-item style="background:none; border-bottom: 0px;">
+                              <ion-label>Female</ion-label>
+                              <ion-radio value="Female"></ion-radio>
+                            </ion-item>
+                          </td>
+
+                          <td width="40%"> 
+                            <ion-item style="background:none;">
+                              <ion-label>Male</ion-label>
+                              <ion-radio value="Male"></ion-radio>
+                            </ion-item>
+                          </td>                          
+                        </tr>
+                      </table>
+                    </ion-list>
+                  </td>                  
+                </tr>
+
+                <tr>
+                  <td width="10%" style="vertical-align: bottom; padding-bottom:5px;"><img src="assets/img/mail.png" width="17px" height="17px"></td>
+                  <td width="90%">
+                    <ion-item>
+                      <ion-label floating>Email</ion-label>
+                      <ion-input [(ngModel)]="email" [value]="vemail" formControlName="email" type="email" ></ion-input>
+                    </ion-item>
+                  </td>                  
+                </tr>
+
+                <tr>
+                  <td width="10%" style="vertical-align: bottom; padding-bottom:5px;"><img src="assets/img/college.png" width="17px" height="17px"></td>
+                  <td width="90%">
+                    <ion-item>
+                      <ion-label floating>City</ion-label>
+                      <ion-input [(ngModel)]="city" [value]="vcity" formControlName="city" type="text" ></ion-input>
+                    </ion-item>
+                  </td>                  
+                </tr>
+
+                <tr>
+                  <td width="10%" style="vertical-align: bottom; padding-bottom:5px;"><img src="assets/img/address.png" width="17px" height="17px"></td>
+                  <td width="90%">
+                    <ion-item>
+                      <ion-label floating>Address</ion-label>
+                      <ion-input [(ngModel)]="address" [value]="vaddress" formControlName="address" type="text" ></ion-input>
+                    </ion-item>
+                  </td>                  
+                </tr>
+
+                <tr>
+                  <td width="10%" style="vertical-align: bottom; padding-bottom:5px;"><img src="assets/img/status.png" width="17px" height="17px"></td>
+                  <td width="90%">
+                    <ion-item>
+                      <ion-label floating>Pincode</ion-label>
+                      <ion-input [(ngModel)]="pincode" [value]="vpincode" formControlName="pincode" type="text" ></ion-input>
+                    </ion-item>
+                  </td>                  
+                </tr>
+
+              </table>
+        
+              <ion-item></ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div style="text-align:center;">
+              <button ion-button class="bgdheader edit-profile-button" (click)="editProfile();">Save Changes</button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </form>
+
+    </div>
+
+  </div>
+</ion-content>

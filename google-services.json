@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "552232024949",
+    "firebase_url": "https://mshala-9446a.firebaseio.com",
+    "project_id": "mshala-9446a",
+    "storage_bucket": "mshala-9446a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:552232024949:android:d2bc18702ab4baa7",
+        "android_client_info": {
+          "package_name": "net.sreyah.mshala"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "552232024949-93m3isiieqirtq5r0kmpnqlnd21s52ph.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKppiY2A4pWWdbeLrbyZhdfJJieVAb7WQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

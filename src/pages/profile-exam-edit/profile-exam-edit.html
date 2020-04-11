@@ -1,0 +1,82 @@
+<ion-content>
+
+  <div ion-fixed class="bgdheader" style="height:50px; width:100%; color:#fff" >
+    <table width="100%"  height="50px">
+      <tr>
+        <td style="width:20%; padding-left:10px;"> <div style="font-size:20px; margin-left:10px;" (click) = "goToBack()"> <ion-icon name="arrow-back"></ion-icon> </div> </td>
+        <td style="width:80%; padding-left:30px; font-size:18px; ">Edit Educational Details</td>
+      </tr>
+    </table>   
+  </div>
+
+  <div style="margin-top:50px; ">
+
+    <div style="padding-top:15px;">
+
+      <form [formGroup]="myForm" style="margin-top:-20px; margin-bottom:10px" >
+        <ion-row>
+          <ion-col>
+            <ion-list inset class="no-border" style="background:none;">
+
+              <table width="100%" border="0">
+
+                <tr>
+                  <td width="10%" style="vertical-align: bottom; padding-bottom:5px;"><img src="assets/img/status.png" width="17px" height="17px"></td>
+                  <td width="90%">
+                    <ion-item>
+                      <ion-label floating>Exam name</ion-label>
+                      <ion-input [(ngModel)]="exam_name" formControlName="exam_name" type="text" ></ion-input>
+                    </ion-item>
+                  </td>                  
+                </tr>
+
+                <tr>
+                  <td width="10%" style="vertical-align: bottom; padding-bottom:5px;"><img src="assets/img/calendar.png" width="17px" height="17px"></td>
+                  <td width="90%">
+                    <ion-item style="margin-left: -10px;">
+                      <ion-label floating>Exam Date</ion-label>
+                      <!-- <ion-input [(ngModel)]="exam_date" formControlName="exam_date" type="text" ></ion-input> -->
+                      <ion-datetime displayFormat="DD MMMM YYYY" [(ngModel)]="exam_date" formControlName="exam_date" ></ion-datetime>                      
+                    </ion-item>
+                  </td>                  
+                </tr>
+
+                <tr>
+                  <td width="10%" style="vertical-align: bottom; padding-bottom:5px;"><img src="assets/img/score.png" width="17px" height="17px"></td>
+                  <td width="90%">
+                    <ion-item>
+                      <ion-label floating>Marks Scored</ion-label>
+                      <ion-input [(ngModel)]="marks_scored" formControlName="marks_scored" type="number" ></ion-input>
+                    </ion-item>
+                  </td>                  
+                </tr>
+
+                <tr>
+                  <td width="10%" style="vertical-align: bottom; padding-bottom:5px;"><img src="assets/img/status.png" width="17px" height="17px"></td>
+                  <td width="90%">
+                    <ion-item>
+                      <ion-label floating>Result Status</ion-label>
+                      <ion-input [(ngModel)]="result_status" formControlName="result_status" type="text" ></ion-input>
+                    </ion-item>
+                  </td>                  
+                </tr>
+
+              </table>
+
+              <ion-item></ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div style="text-align:center;">
+              <button ion-button class="bgdheader edit-profile-button" (click)="addExam();">Add Exam</button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </form>
+
+    </div>
+
+  </div>
+</ion-content>

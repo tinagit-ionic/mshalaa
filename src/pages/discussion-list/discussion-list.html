@@ -1,0 +1,68 @@
+<ion-content style="background:#f7f7f7; ">
+
+  <div ion-fixed style="width: 100%; background:#ffffff; padding-bottom:5px; ">
+    <div class="bgdheader" style="padding-top:10px; padding-bottom:10px; " >
+      <table width="100%" border="0" >
+        <tr>
+          <td width="20%" style="padding-left:20px;"><div (click)="openMenu();" ><img src="assets/img/menu_white.png" width="20px;" height="20px"></div></td>
+          <td width="45%" style="text-align:left; color:#FFFFFF; font-size: 17px;"><b>mshala</b></td>
+          <td width="35%" style="text-align: right; padding-right:20px;">
+            <span (click) = "notification();"><img src="assets/img/notification_white.png" width="30px;" height="30px"></span> &nbsp; &nbsp;                 
+            <span (click) = "profile();"><img src="{{ photo }}" width="30px;" height="30px" style="border-radius:15px;"></span>                  
+          </td>        
+        </tr>
+      </table>
+    </div>
+
+    <div style="font-size:18px; margin-top:10px;">
+      <table width="100%" border="0" style="padding-left:15px; padding-right:15px;" >
+        <tr>
+          <td width="70%"><span style="padding-left:15px;"><b>चर्चामंच</b></span> <span style="float:right; color:#1976d2; font-size:14px; padding-top:3px; ">Show my post</span></td>
+          <td width="15%"><span><ion-toggle [(ngModel)]="isToggled" (ionChange)="notify()"></ion-toggle></span></td>
+          <td width="15%" style="text-align:center;"><span (click)="postQuestion();" ><ion-icon name="add"></ion-icon></span></td>          
+        </tr>
+      </table>
+    </div>    
+  </div>
+
+  <div style="margin-top:110px;">
+
+    <div style="margin-bottom: 0px;">
+      <div *ngIf="discussionlistLength">
+      <div *ngFor="let discussion of discussionlist;" (click)="goToDiscussion(discussion.id);" style="background:#ffffff; padding-left:10px; padding-right:10px; padding-top:10px; padding-bottom:10px; margin-bottom:7px; ">
+        <table width="100%" border="0">
+          <tr>
+            <td width="15%" ><img src="{{ discussion.photo }}" width="35px" height="35px" style="border-radius:50%"></td>
+            <td width="85%">
+              <div><b>{{ discussion.fullname }}</b></div>
+              <div style="font-size:10px;">{{ discussion.discuss_date }}</div>            
+            </td>          
+          </tr>
+
+          <tr>
+            <td colspan="2" >
+              <div style="padding:10px;">{{ discussion.discusstext }}</div>
+            </td>       
+          </tr>
+
+          <tr>
+            <td colspan="2">
+              <div><img src="assets/img/comment.png" width="15px" height="17px"> &nbsp; {{ discussion.numOfcomment }}</div>            
+            </td>         
+          </tr>
+        </table>
+      </div>
+      </div>
+
+      <div *ngIf="!discussionlistLength" style="text-align: center; color: #d50000; margin-top:250px; font-size:16px;"><b>No Discussions</b></div>
+    </div>
+
+    <!-- <div class="bgdheader pg-footer" style="position: fixed; bottom: 0px; width: 100%;" >
+      <div style="width:100%; float:left;">
+        <button ion-button (click)="postQuestion();" class="bgdheader footer-btn" style="outline: none !important; box-shadow: none !important;"  ><div style="margin-bottom:5px;"><b>Post Question</b></div></button>
+      </div>
+    </div> -->
+
+  </div>
+
+</ion-content>

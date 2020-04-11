@@ -1,0 +1,28 @@
+page-home {
+
+    .home-bg {
+        background: url(../assets/img/nature.png) repeat; 
+    }
+
+    .bg-head-menu{
+        background: color($colors, primary, base);
+    }
+
+    .btn-title {
+        font-size: 0.8em;
+        text-align: center;
+    }
+
+    .progress::-moz-progress-bar { 
+        background: #FF7162;
+    }
+
+    .progress::-webkit-progress-value {
+        background: #FF7162;
+    }
+
+    .progress {
+        color: #FF7162;
+    }
+
+}

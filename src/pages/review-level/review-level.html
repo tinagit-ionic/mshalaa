@@ -1,0 +1,54 @@
+<ion-content style="background:#f7f7f7;">
+
+  <div style="padding:12px;">
+    <span>#{{ nextIndex }}</span>
+    <span style="float:right;">Attempted Ques: <span style="color:#1700FF;">{{ (nextIndex-1) }}</span>/{{ questionCount}} </span>
+  </div>
+
+  <div>
+    <ion-scroll scrollX style="height:65px; ">
+      <div style="padding-right:10px; background:#ffffff;">
+      <div *ngFor = "let que of questionList; let i = index;" (click)="getSingleQuestion(i);" class="scroll-item" style="background:#ffffff; padding-top:10px; padding-bottom:10px; ">
+        <div [ngClass]="{'ques-attempt': que.correctAnswer, 'ques-unattempt': !(que.correctAnswer)}"><b>{{ i+1 }}</b></div> <!-- [ngClass]="'ques-attempt': attemptedQuesIndex.indexOf(i) !== -1" -->
+      </div>
+      </div>
+    </ion-scroll> 
+  </div>
+
+  <div style="margin-top:10px;">
+
+    <div style="background:#ffffff; padding:10px; margin-bottom:5px; ">
+      <table width="100%" border="0">
+        <!-- <td width="15%" style="vertical-align: middle; text-align:center; ">
+          <div>
+            <div style="background:#77D353; border-radius:50%; color:#fff; text-align: center; width:40px; height:40px; font-size:12px; padding-top:11px; " ><b>{{ nextIndex }}</b></div>          
+          </div>
+        </td> -->
+        <td width="100%">
+          <div>
+            {{ question }}
+          </div>
+        </td>        
+      </table>
+    </div>
+
+    <div style="margin-right:5px;">
+      <button ion-button [ngStyle]="{'border': mcqOneBg}" style="width:100%; outline: none !important; box-shadow: none !important; background:#fff; color:#000; ">
+        <div style="text-align:left; padding-top:7px; padding-bottom:7px;">1. &nbsp; &nbsp; {{ optionA }}</div>
+      </button>
+
+      <button ion-button [ngStyle]="{'border': mcqTwoBg}" style="width:100%; outline: none !important; box-shadow: none !important; background:#fff; color:#000; ">
+        <div style="text-align:left; padding-top:7px; padding-bottom:7px;">2. &nbsp; &nbsp; {{ optionB }}</div>
+      </button>
+
+      <button ion-button [ngStyle]="{'border': mcqThreeBg}" style="width:100%; outline: none !important; box-shadow: none !important; background:#fff; color:#000; ">
+        <div style="text-align:left; padding-top:7px; padding-bottom:7px;">3. &nbsp; &nbsp; {{ optionC }}</div>
+      </button>
+
+      <button ion-button [ngStyle]="{'border': mcqFourBg}" style="width:100%; outline: none !important; box-shadow: none !important; background:#fff; color:#000; ">
+        <div style="text-align:left; padding-top:7px; padding-bottom:7px;">4. &nbsp; &nbsp; {{ optionD }}</div>
+      </button>
+    </div>
+  </div>
+  
+</ion-content>

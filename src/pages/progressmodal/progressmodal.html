@@ -1,0 +1,66 @@
+<ion-content>
+
+  <div class="bgdheader" style="padding-top:10px; padding-bottom:10px; width:100%; " ion-fixed >
+    <table width="100%" border="0" >
+      <tr>
+        <td width="20%" style="padding-left:20px;"><div (click)="openMenu();" ><img src="assets/img/menu_white.png" width="20px;" height="20px"></div></td>
+        <td width="45%" style="text-align:left; color:#FFFFFF; font-size: 17px;"><b>mshala</b></td>
+        <td width="35%" style="text-align: right; padding-right:20px;">
+          <span (click) = "notification();"><img src="assets/img/notification_white.png" width="30px;" height="30px"></span> &nbsp; &nbsp;                 
+          <span (click) = "profile();"><img src="{{ photo }}" width="30px;" height="30px" style="border-radius:15px;"></span>                  
+        </td>        
+      </tr>
+    </table>
+  </div>
+  
+  <div style="margin-top: 50px; margin-bottom:10px;">
+
+    <div *ngIf="levelStatus == 'CLEARED'" style="text-align:center; background:#8bc34a; color:#ffffff; padding-bottom:35px; padding-top:35px;">
+      <div style="font-size:16px;">
+        <b>भारीच  ना...!! हि  लेव्हल  तुम्हची  पार  झालेली  आहे. तुम्ही  अभ्यास  असाच  चालू  ठेवा .</b>
+      </div>
+    </div>
+
+    <div *ngIf="levelStatus == 'HOLD'" style="text-align:center; background: #EF343F; color:#ffffff; padding-bottom:35px; padding-top:35px;">
+      <div style="font-size:16px; padding-left:10px; padding-right:10px;" ><b>क्षमा  करा. पण लेव्हल  पार  करण्यासाठी पुरेसे  असलेले  उत्तरे  तुम्ही  बरोबर देऊ शकले  नाही.</b></div>      
+    </div>
+
+    <div style="text-align:center; margin-top:15px;">
+      <div style="font-size:17px;">{{ subjectName }}</div>
+      <div style="padding-top:5px; font-size:13px">{{ queCorrect }}/{{ totalQue }}</div>      
+    </div>
+
+    <div style="margin-top:15px;">
+      <canvas #doughnutCanvas></canvas>
+    </div>
+
+    <div *ngIf="levelStatus == 'HOLD'" style="text-align: center; margin-top:20px; margin-bottom:5px;">
+      <!-- <button ion-button (click)="retakeTest();" style="background: #EF343F; outline: none !important; box-shadow: none !important; font-size:12px; padding-left:20px; padding-right:20px; height:45px;"><b>Retake test after 30 minutes</b></button> -->
+      <div>काळजी  करू  नका  ३० मि. नंतर  पुन्हा  प्रयत्न  करू  शकता</div>
+      <div style="margin-top:5px;">You will unlock level at {{ holdTimeStamp }}</div>
+
+      <div style="margin-top:20px;">
+        <button ion-button class="bgdheader" (click)="goToHome();" style="width: 80%; height:42px; outline: none !important; box-shadow: none !important; font-size: 16px;" >Go To Home</button>
+      </div>
+    </div>
+
+    <div *ngIf="levelStatus == 'CLEARED'" style="text-align: center; margin-top:65px; margin-bottom:5px;">
+
+      <table width="100%" border="0">
+        <tr>
+          <td width="50%">
+            <div>
+              <button ion-button (click)="goToNextLevel();" style="width:150px; background:#8bc34a; outline: none !important; box-shadow: none !important; font-size:12px; padding-left:20px; padding-right:20px; height:45px;"><b>Next Level {{ level_id+1 }}</b></button>      
+            </div>
+          </td>
+
+          <td width="50%">
+            <button ion-button (click)="reviewLevel();" style="width:150px; background:#8bc34a; outline: none !important; box-shadow: none !important; font-size:12px; padding-left:20px; padding-right:20px; height:45px;"><b>Review Level</b></button>                  
+          </td>          
+        </tr>
+      </table>
+    </div>
+
+  </div>
+
+</ion-content>

@@ -1,0 +1,60 @@
+<ion-content style="background:#f7f7f7;">
+
+  <div style="padding:12px;">
+    <span>#{{ qnum }}</span>
+    <span style="float:right;">Attempted Ques: <span style="color:#1700FF;">2</span>/10 </span>
+  </div>
+
+  <div>
+    <ion-scroll scrollX style="height:65px; ">
+      <div style="padding-right:10px; background:#ffffff;">
+      <div *ngFor = "let que of questionInfo; let i = index;" (click)="goToQuestion(i+1, que.questionId, que.question, que.optionA, que.optionB, que.optionC, que.optionD);" class="scroll-item" style="background:#ffffff; padding-top:10px; padding-bottom:10px; ">
+        <div style="margin-left:12px; background:#77D353; border-radius:50%; color:#fff; text-align: center; width:40px; height:40px; font-size:12px; padding-top:11px; " ><b>{{ i+1 }}</b></div>
+      </div>
+      </div>
+    </ion-scroll> 
+  </div>
+
+  <div style="margin-top:10px;">
+
+    <div style="background:#ffffff; padding:10px; margin-bottom:5px; ">
+      <table width="100%" border="0">
+        <td width="15%" style="vertical-align: middle; text-align:center; ">
+          <div>
+            <div style="background:#77D353; border-radius:50%; color:#fff; text-align: center; width:40px; height:40px; font-size:12px; padding-top:11px; " ><b>{{ qnum }}</b></div>          
+          </div>
+        </td>
+        <td width="85%">
+          <div>
+            {{ question }}
+          </div>
+        </td>        
+      </table>
+    </div>
+
+    <div style="margin-right:5px;">
+      <button ion-button (click)="mcqStatus(optionA, '#33691e', '#ffffff', '#ffffff', '#ffffff');" [ngStyle]="{'border': mcqOneBg}" style="width:100%; outline: none !important; box-shadow: none !important; background:#fff; color:#000; ">
+        <div style="text-align:left; padding-top:7px; padding-bottom:7px;">1. &nbsp; &nbsp; {{ optionA }}</div>
+      </button>
+
+      <button ion-button (click)="mcqStatus(optionB, '#ffffff', '#33691e', '#ffffff', '#ffffff');" [ngStyle]="{'border': mcqTwoBg}" style="width:100%; outline: none !important; box-shadow: none !important; background:#fff; color:#000; ">
+        <div style="text-align:left; padding-top:7px; padding-bottom:7px;">2. &nbsp; &nbsp; {{ optionB }}</div>
+      </button>
+
+      <button ion-button (click)="mcqStatus(optionC, '#ffffff', '#ffffff', '#33691e', '#ffffff');" [ngStyle]="{'border': mcqThreeBg}" style="width:100%; outline: none !important; box-shadow: none !important; background:#fff; color:#000; ">
+        <div style="text-align:left; padding-top:7px; padding-bottom:7px;">3. &nbsp; &nbsp; {{ optionC }}</div>
+      </button>
+
+      <button ion-button (click)="mcqStatus(optionD, '#ffffff', '#ffffff', '#ffffff', '#33691e');" [ngStyle]="{'border': mcqFourBg}" style="width:100%; outline: none !important; box-shadow: none !important; background:#fff; color:#000; ">
+        <div style="text-align:left; padding-top:7px; padding-bottom:7px;">4. &nbsp; &nbsp; {{ optionD }}</div>
+      </button>
+    </div>
+
+  </div>
+
+
+  <!-- <div>
+    <button (click)="submitTest();" ion-button>Submit Test</button>
+  </div> -->
+  
+</ion-content>

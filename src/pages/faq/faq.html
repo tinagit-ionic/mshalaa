@@ -1,0 +1,47 @@
+<ion-content style="background: #f7f7f7;">
+
+  <div ion-fixed style="width: 100%; padding-bottom:10px; background:#ffffff;">
+    <div class="bgdheader" style="padding-top:10px; padding-bottom:10px; " >
+      <table width="100%" border="0" >
+        <tr>
+          <td width="20%" style="padding-left:20px;"><div (click)="openMenu();" ><img src="assets/img/menu_white.png" width="20px;" height="20px"></div></td>
+          <td width="45%" style="text-align:left; color:#FFFFFF; font-size: 17px;"><b>mshala</b></td>
+          <td width="35%" style="text-align: right; padding-right:20px;">
+            <span (click) = "notification();"><img src="assets/img/notification_white.png" width="30px;" height="30px"></span> &nbsp; &nbsp;                 
+            <span (click) = "profile();"><img src="{{ photo }}" width="30px;" height="30px" style="border-radius:15px;"></span>                  
+          </td>        
+        </tr>
+      </table>
+    </div>
+
+    <div style="text-align:center; font-size:20px; margin-top:10px;"><b>FAQ</b></div>    
+  </div>
+
+  <div style="margin-top:105px;">
+
+    <div *ngIf="faqlistLength">
+    <ion-list>
+      <ion-item *ngFor="let faq of faqlist; let i=index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}" style="margin-bottom:7px;">
+        <h3>
+          <img src="assets/img/dot.png" width="15px" height="15px"> &nbsp;<b>{{faq.question}}</b>
+          <span style="float: right;"><ion-icon color="success" item-right [name]="isGroupShown(i) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon></span>
+        </h3>
+        <div *ngIf="isGroupShown(i)" style="color:#5A6978; padding-top:15px;">{{faq.answer}}</div>
+      </ion-item>
+    </ion-list>
+
+    <div *ngIf="!flag" style="text-align:center; margin-bottom:15px;">
+        
+      <div *ngIf="isBusy" style="background-color: none; text-align: center;">
+        <img src="assets/images/giphy.gif" style="width: 60px; height: 60px;"/>
+      </div>
+      <button ion-button (click)="loadData(start)" style="width:60%; outline: none !important; box-shadow: none !important; background:#fff; color:#616161; border:1px solid #616161;">Load More</button>
+
+    </div>
+    </div>
+
+    <div *ngIf="!faqlistLength" style="text-align:center; color:#d50000; font-size:16px; margin-top:250px;"><b>No FAQ</b></div>
+
+  </div>
+
+</ion-content>

@@ -1,0 +1,94 @@
+<ion-content style="background:#f7f7f7; ">
+
+  <div ion-fixed style="width: 100%; background:#ffffff; padding-bottom:10px; ">
+    <div class="bgdheader" style="padding-top:10px; padding-bottom:10px; " >
+      <table width="100%" border="0" >
+        <tr>
+          <td width="20%" style="padding-left:20px;"><div (click)="openMenu();" ><img src="assets/img/menu_white.png" width="20px;" height="20px"></div></td>
+          <td width="45%" style="text-align:left; color:#FFFFFF; font-size: 17px;"><b>mshala</b></td>
+          <td width="35%" style="text-align: right; padding-right:20px;">
+            <span (click) = "notification();"><img src="assets/img/notification_white.png" width="30px;" height="30px"></span> &nbsp; &nbsp;                 
+            <span (click) = "profile();"><img src="{{ photo }}" width="30px;" height="30px" style="border-radius:15px;"></span>                  
+          </td>        
+        </tr>
+      </table>
+    </div>
+
+    <div style="text-align:center; font-size:18px; margin-top:10px;"><b>चर्चामंच</b></div>    
+  </div>
+
+  <div style="margin-top:105px;">
+
+    <div style="margin-bottom: 50px;">
+      <div style="background:#ffffff; padding-left:10px; padding-right:10px; padding-top:10px; padding-bottom:10px; ">
+        <table width="100%" border="0">
+          <tr>
+            <td width="15%"><img src="{{ discussion?.photo }}" width="35px" height="35px" style="border-radius:50%"></td>
+            <td width="85%">
+              <div><b>{{ discussion?.memberName }}</b></div>
+              <div style="font-size:10px;">{{ discussion?.discuss_date }}</div>            
+            </td>          
+          </tr>
+
+          <tr>
+            <td colspan="2">
+              <div style="padding:10px;">{{ discussion?.discusstext }}</div>
+            </td>       
+          </tr>
+
+          <tr>
+            <td colspan="2">
+              <div><img src="assets/img/comment.png" width="15px" height="17px"> &nbsp; {{ discussion?.num_of_comments }}</div>            
+            </td>         
+          </tr>
+        </table>
+      </div>
+
+      <div *ngFor = "let comment of comment_arr;" style="margin-top:1px; background:#ffffff; padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;">
+        <table width="100%">
+            <tr>
+              <td width="15%" style="vertical-align: top;">
+                <div>
+                  <img src="{{ comment.photo }}" width="35px" height="35px" style="border-radius:50%">
+                </div>
+              </td>
+
+              <td width="85%">
+                <div><b>{{ comment.cmmentor }}</b></div>
+                <div>
+                  {{ comment.comments }}
+                </div>
+                <div style="font-size:10px; color: #969FAA; padding-top:10px; text-align:right;">{{ comment.comment_datetime }}</div>
+              </td>              
+            </tr>
+        </table>
+
+      </div>
+
+      <div style="margin-top:7px; background:#fff; margin-left:5px; margin-right:5px; padding: 5px;">
+        <div>
+        <div>
+          <table width="100%" border="0">
+            <tr>
+              <td width="15%" >
+                <img src="assets/img/profile.jpg" width="35px" height="35px">
+              </td>
+              <td width="85%">
+                <ion-item style="border:1px solid #ddd; ">
+                  <ion-input [(ngModel)]="comment" [value]="comment" type="text" placeholder="Add a comment ..." ></ion-input>
+                </ion-item>
+              </td>              
+            </tr>
+          </table>
+        </div>
+
+        <div style="text-align:right; ">
+          <button ion-button class="bgdheader" style="outline: none !important; box-shadow: none !important; " (click)="postComment();" >Post</button>
+        </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</ion-content>

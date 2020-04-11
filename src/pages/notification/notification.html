@@ -1,0 +1,83 @@
+<ion-content style="background: #f7f7f7;">
+
+  <div ion-fixed style="width: 100%; background:#ffffff; padding-bottom:10px; ">
+
+    <div class="bgdheader" style="padding-top:10px; padding-bottom:10px; " >
+      <table width="100%" border="0" >
+        <tr>
+          <td width="20%" style="padding-left:20px;"><div (click)="openMenu();" ><img src="assets/img/menu_white.png" width="20px;" height="20px"></div></td>
+          <td width="45%" style="text-align:left; color:#FFFFFF; font-size: 17px;"><b>mshala</b></td>
+          <td width="35%" style="text-align: right; padding-right:20px;">
+            <span (click) = "profile();"><img src="{{ photo }}" width="30px;" height="30px" style="border-radius:15px;"></span>                  
+          </td>        
+        </tr>
+      </table>
+    </div>
+
+    <div style="padding-left:15px; padding-right:15px; font-size:20px; margin-top:10px;">
+      <table width="100%">
+        <tr>
+          <td width="60%"><span><b>Notifications</b></span></td>
+          <td width="40%" style="text-align:right;"><span (click)="readAll();" style="font-size:14px; color:#1976d2;" >View as Read all</span></td>          
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div style="margin-top:105px;">
+
+    <div *ngIf = "notificationListLength">
+    <ion-list>
+  
+      <ion-item-sliding *ngFor="let notification of notificationList;" no-lines style="margin-bottom:5px;" >
+  
+        <ion-item (click)="notification.status == 'NEW' && updateNotification(notification.NotifyId);" [ngClass]="{'bgd-amber':notification.status == 'NEW','bgd-white':notification.status == 'VIEWED'}" text-wrap no-lines>
+        <div>
+
+          <table width="100%" border="0">
+            <tr>
+              <td width="15%">
+                <div>
+                  <img src="assets/img/bell.png" width="35px" height="35px" >
+                </div>
+              </td>
+    
+              <td width="85%">
+                <div style="padding-bottom:5px;">
+                  {{ notification.headerMessage }} 
+                </div>
+                <div style="font-size:11px; color:#969FAA; text-align:right;">
+                  {{ notification.NotifyDate }} at {{ notification.NotifyTime }}
+                </div>          
+              </td>
+            </tr>
+          </table>
+  
+        </div>
+        </ion-item>
+  
+        <ion-item-options no-lines side="right">
+          <button danger (click)="removeNotification(notification.NotifyId)" style="background:#FFD400; color:#d50000"><ion-icon name="trash"></ion-icon> Delete</button>
+        </ion-item-options>
+  
+      </ion-item-sliding>
+
+      
+
+      <div *ngIf="!flag" style="text-align:center; margin-bottom:15px;">
+        
+        <div *ngIf="isBusy" style="background-color: none; text-align: center;">
+          <img src="assets/images/giphy.gif" style="width: 60px; height: 60px;"/>
+        </div>
+        <button ion-button (click)="loadData(start)" style="width:60%; outline: none !important; box-shadow: none !important; background:#fff; color:#616161; border:1px solid #616161;">Load More</button>
+  
+      </div>
+      
+    </ion-list>
+    </div>
+
+    <div *ngIf = "!notificationListLength" style="text-align:center; color:#d50000; font-size:16px; margin-top:250px;"><b>No Notification</b></div>
+
+  </div>
+
+</ion-content>

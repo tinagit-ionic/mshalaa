@@ -1,0 +1,48 @@
+<ion-content>
+
+  <div  style="width: 100%; background:#ffffff; padding-bottom:10px; ">
+    <div class="bgdheader" style="padding-top:10px; padding-bottom:10px; " >
+      <table width="100%" border="0" >
+        <tr>
+          <td width="20%" style="padding-left:20px;"><div (click)="openMenu();" ><img src="assets/img/menu_white.png" width="20px;" height="20px"></div></td>
+          <td width="45%" style="text-align:left; color:#FFFFFF; font-size: 17px;"><b>mshala</b></td>
+          <td width="35%" style="text-align: right; padding-right:20px;">
+            <!-- <span (click) = "notification();"><img src="assets/img/notification_white.png" width="30px;" height="30px"></span> &nbsp; &nbsp;                 
+            <span (click) = "profile();"><img src="{{ photo }}" width="30px;" height="30px" style="border-radius:15px;"></span>                   -->
+          </td>        
+        </tr>
+      </table>
+    </div>
+
+    <div style="text-align:center; font-size:20px; margin-top:10px;"><b>Select Theme</b></div>    
+  </div>
+
+  <div>
+
+    <div style="font-size:16px;">
+      <div style="text-align: center; margin-top:10px;">
+        <table width="100%" border="0" >
+          <tr>
+            <td width="33%"><div style="background:#2962FF; margin-right:5px; margin-bottom:5px; height:130px; " (click)="blueColorAppTheme();">&nbsp;</div></td>
+            <td width="34%"><div style="background:#EF343F; margin-right:5px; margin-bottom:5px; height:130px; " (click)="redColorAppTheme();">&nbsp;</div></td>            
+            <td width="33%"><div style="background:#FFC440; margin-bottom:5px; height:130px; " (click)="amberColorAppTheme();">&nbsp;</div></td>                        
+          </tr>
+
+          <tr>
+            <td><div style="background:#FF7043; margin-right:5px; margin-bottom:5px; height:130px; " (click)="orangeColorAppTheme();">&nbsp;</div></td>
+            <td><div style="background:#1B5E20; margin-right:5px; margin-bottom:5px; height:130px; " (click)="greenColorAppTheme();">&nbsp;</div></td>            
+            <td><div style="background:#1A237E; margin-bottom:5px; height:130px; " (click)="indigoColorAppTheme();">&nbsp;</div></td>                        
+          </tr>
+
+          <tr>
+            <td><div style="background:#F86FBA; margin-right:5px; height:130px; " (click)="pinkColorAppTheme();">&nbsp;</div></td>
+            <td><div style="background:#00BFA5; margin-right:5px; height:130px; " (click)="tealColorAppTheme();">&nbsp;</div></td>            
+            <td><div style="background:#7F007F; height:130px; " (click)="violetColorAppTheme();">&nbsp;</div></td>                        
+          </tr>
+        </table>
+      </div>
+    </div>
+    
+  </div>
+
+</ion-content>

@@ -1,0 +1,95 @@
+<ion-content style="background: #f7f7f7;">
+
+  <div ion-fixed class="bgdheader" style="width: 100%; padding-top:10px; padding-bottom:10px; " >
+  <table width="100%" border="0" >
+    <tr>
+      <td width="20%" style="padding-left:20px;"><div (click)="openMenu();" ><img src="assets/img/menu_white.png" width="20px;" height="20px"></div></td>
+      <td width="45%" style="text-align:left; color:#FFFFFF; font-size: 17px;"><b>mshala</b></td>
+      <td width="35%" style="text-align: right; padding-right:20px;">
+        <span (click) = "goToPage('NotificationPage');"><img src="assets/img/notification_white.png" width="30px;" height="30px"></span> &nbsp; &nbsp; 
+        <span (click) = "goToPage('ProfilePage');"><img src="{{ photo }}" width="30px;" height="30px" style="border-radius:15px;"></span>                  
+      </td>        
+    </tr>
+  </table>
+  </div>
+
+<div style="padding-bottom:10px;">
+
+  <div>
+    <div>
+      <img src="assets/img/nature.png" width="100%" height="130px">
+    </div>
+
+    <div style="margin-top:-90px; ">
+
+      <div>
+      <table width="100%" border="0" style="margin-top:20px;">
+        <tr>
+          <td width="25%">
+            <div style="text-align: center;">
+              <img src="{{ photo }}" width="60px" height="60px" style="border-radius:50%">
+            </div>
+          </td>
+          <td width="75%">
+            <div>
+              <div style="font-size:15px;"><b>{{ curHr }}, {{ fullname }}</b></div>
+              <div style="font-size:13px;">{{ mobile1 }}</div>
+            </div>
+          </td>        
+        </tr>
+      </table>
+      </div>
+        
+    </div>
+  </div>
+
+  <!-- <div class="home-header" style="margin-top:10px; text-align:center; padding-top:6px; padding-bottom:6px;">
+    <table width="100%" border="0">
+      <tr>
+        <td width="40%">
+          <div style="color:#1700FF;"><b>{{ dataDashboard?.rank }}</b></div>
+          <div style="font-size:13px; ">RANK</div>          
+        </td>
+        <td width="60%">
+          <div style="color:#1700FF;"><b>{{ dataDashboard?.subscripDate }}</b></div>
+          <div style="font-size:13px; ">SUBSCRIPTION DATE</div>          
+        </td>        
+      </tr>
+    </table>
+  </div> -->
+
+  <div class="row" style="background:#ffffff; margin-top:10px;">
+    <div style="border:2px solid #eeeeee;" col-4 col-sm-4 col-md-6 col-lg-4 col-xl-2 *ngFor="let menu of dataDashboard?.subjectDetails; let i = index" text-center> 
+      <button (click)="goToSubject(menu.subjectId)" style="background:#ffffff; padding-top:10px; padding-bottom:7px;" >
+        <div style="margin-bottom:5px;"><img src="{{ menu.subjectLogo }}" width="40px" height="40px" /></div>
+        <div style="font-size:12px;">{{ menu.subjectName }}</div>
+
+        <div style="text-align:right; font-size:8px;">{{ menu.currentLevelNumber }}/{{ menu.totalLevelCount }}</div>
+        <div>
+          <progress class="progress" value="{{ menu.currentLevelNumber }}" max="{{ menu.totalLevelCount }}" style="height:2px;"></progress>          
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:5px;">
+    <div class="home-header" style="padding:10px; color:#fff;">
+      सुविचार 
+    </div>
+    <div style="padding-left:10px; padding-right:10px; padding-top:20px; padding-bottom:20px; background:#ffffff;">
+      " {{ dataDashboard?.todaysThought }} "
+    </div>  
+  </div>
+
+  <div style="margin-top:5px; ">
+    <div class="home-header" style="padding:10px; text-align:center; color:#ffffff;">
+      दिनविशेष  
+    </div>
+    <div style="padding-left:10px; padding-right:10px; padding-top:20px; padding-bottom:20px; background:#ffffff;">
+      <div style="margin-bottom:15px; font-size:13px;" *ngFor = "let dinVishesh of dataDashboard?.dinVishesh;"><li style="list-style: url(assets/img/bullet.png)">{{ dinVishesh.todaysdinVishesh }}</li></div>
+    </div>  
+  </div>
+
+</div>
+
+</ion-content>
